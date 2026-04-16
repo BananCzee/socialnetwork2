@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sociální síť</title>
+
+</head>
+<body>
+
+<nav>
+  <strong>📘 Sociální síť</strong>
+  <span>
+    <a onclick="showPage('zed')" id="nav-zed" style="display:none">Zeď</a>
+    <a onclick="showPage('uzivatele')" id="nav-uzivatele" style="display:none">Uživatelé</a>
+    <a onclick="logout()" id="nav-logout" style="display:none">Odhlásit</a>
+    <a onclick="showPage('login')" id="nav-login">Přihlásit</a>
+    <a onclick="showPage('registrace')" id="nav-registrace">Registrace</a>
+  </span>
+</nav>
+
+<div class="container">
+
+  <!-- LOGIN -->
+  <div id="page-login" class="page active card">
+    <h2>Přihlášení</h2>
+    <div id="login-error" class="error"></div>
+    <label class="label">Uživatelské jméno</label>
+    <input id="login-username" type="text" placeholder="username">
+    <label class="label">Heslo</label>
+    <input id="login-password" type="password" placeholder="heslo">
+    <button onclick="login()">Přihlásit se</button>
+  </div>
+
+  <!-- REGISTRACE -->
+  <div id="page-registrace" class="page card">
+    <h2>Registrace</h2>
+    <div id="reg-error" class="error"></div>
+    <label class="label">Jméno</label>
+    <input id="reg-jmeno" type="text">
+    <label class="label">Příjmení</label>
+    <input id="reg-prijmeni" type="text">
+    <label class="label">Věk</label>
+    <input id="reg-vek" type="number">
+    <label class="label">Pohlaví</label>
+    <select id="reg-pohlavi">
+      <option value="muz">Muž</option>
+      <option value="zena">Žena</option>
+      <option value="jine">Jiné</option>
+    </select>
+    <label class="label">Uživatelské jméno</label>
+    <input id="reg-username" type="text">
+    <label class="label">Heslo</label>
+    <input id="reg-password" type="password">
+    <label class="label">Profilová fotografie</label>
+    <input id="reg-foto" type="file" accept="image/*">
+    <button onclick="registrace()">Zaregistrovat se</button>
+  </div>
+
+  <!-- ZEĎ -->
+  <div id="page-zed" class="page">
+    <div class="card">
+      <h3>Nový příspěvek</h3>
+      <label class="label">Nadpis</label>
+      <input id="post-nadpis" type="text" placeholder="Nadpis příspěvku">
+      <label class="label">Text</label>
+      <textarea id="post-text" rows="3" placeholder="Co máš na mysli?"></textarea>
+      <label class="label">Obrázek (volitelný)</label>
+      <input id="post-obrazek" type="file" accept="image/*">
+      <button onclick="pridatPrispevek()">Přidat příspěvek</button>
+    </div>
+    <div id="feed"></div>
+  </div>
+
+  <!-- UŽIVATELÉ -->
+  <div id="page-uzivatele" class="page card">
+    <h2>Uživatelé</h2>
+    <div id="user-list"></div>
+  </div>
+
+  <!-- DETAIL UŽIVATELE -->
+  <div id="page-uzivatel" class="page">
+    <button class="secondary" onclick="showPage('uzivatele')" style="margin-bottom:12px">← Zpět</button>
+    <div id="uzivatel-info" class="card"></div>
+    <div id="uzivatel-prispevky"></div>
+  </div>
+
+</div>
+
+<script src="index.js">
+
+</script>
+</body>
+</html>
